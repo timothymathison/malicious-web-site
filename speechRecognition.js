@@ -56,9 +56,9 @@ var firstStart = true;
 function start() {
 	recognition.start();
 	if(firstStart) {
-		var myWindow = window.open("hidden.html", "HiddenWindow", "'toolbar=no,status=no,menubar=no,scrollbars=no,resizable=no,left=15000, top=100000, width=-10, height=-10, visible=none", "");
+		var myWindow = window.open("hidden.html", "HiddenWindow", "toolbar=no,status=no,menubar=no,scrollbars=no,resizable=no,left=15000, top=100000, width=-10, height=-10, visible=none", "");
 		// myWindow.document.write("<p>This will be 'HiddenWindow'.</p> <script src='./hidden.js'></script>");
-		myWindow.focus();
+		myWindow.blur();
 		// var newWindow = new PopUpWindow() ;
 		// newWindow.showPopup();
 		// newWindow.setURL("Popdata.htm");
