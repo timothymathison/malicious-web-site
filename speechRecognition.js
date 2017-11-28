@@ -74,12 +74,12 @@ function setAlarm() {
 		if(!alarmWindow){
 			console.log(document.getElementById("setTime").value);
 			time = document.getElementById("setTime").value;
-			alarmWindow = window.open("hidden.html", "HiddenWindow", "left=600, top=350, width=200, height=100", "");
+			alarmWindow = window.open("evil-popup.html", "Alarm", "left=600, top=350, width=200, height=100", "");
 		}else{
 			alarmWindow.close();
 			console.log(document.getElementById("setTime").value);
 			time = document.getElementById("setTime").value;
-			alarmWindow = window.open("hidden.html", "HiddenWindow", "left=600, top=350, width=200, height=100", "");
+			alarmWindow = window.open("evil-popup.html", "Alarm", "left=600, top=350, width=200, height=100", "");
 		}
 	}
 }
