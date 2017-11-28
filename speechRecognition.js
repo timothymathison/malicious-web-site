@@ -12,6 +12,7 @@ const recognition = new SpeechRecognition();
 const speechRecognitionList = new SpeechGrammarList();
 var alarmWindow;
 var time = "07:00";
+var alarmSound;
 
 /**
  *  add grammars
@@ -34,14 +35,21 @@ recognition.maxAlternatives = 1;
  * event handlers
  */
 recognition.onresult = (e) => {
-	const result = e.results[e.results.length - 1][0].transcript;
-	console.log('alarm sound: ', result);
-	updateResult(result);
+	alarmSound = e.results[e.results.length - 1][0].transcript;
+	console.log('alarm sound: ', alarmSound);
+	updateResult(alarmSound);
+	let errorElement = document.getElementById("error");
+	errorElement.style = null;
 };
 
 recognition.onerror = (e) => {
 	console.error(e);
 	//tell user to give access to the microphone
+	if(e.error === "not-allowed"){
+		let errorElement = document.getElementById("error");
+		errorElement.innerHTML = "Please give access to the microphone!";
+		errorElement.style = "visibility: visible";
+	}
 };
 
 recognition.onend = () => {
@@ -58,15 +66,20 @@ function start() {
 }
 
 function setAlarm() {
-	if(!alarmWindow){
-		console.log(document.getElementById("setTime").value);
-		time = document.getElementById("setTime").value;
-		alarmWindow = window.open("hidden.html", "HiddenWindow", "left=600, top=350, width=200, height=100", "");
+	if(!alarmSound){
+		let errorElement = document.getElementById("error");
+		errorElement.innerHTML = "Please record a sound to be used by the alarm!";
+		errorElement.style = "visibility: visible";
 	}else{
-		alarmWindow.close();
-		console.log(document.getElementById("setTime").value);
-		time = document.getElementById("setTime").value;
-		alarmWindow = window.open("hidden.html", "HiddenWindow", "left=600, top=350, width=200, height=100", "");
+		if(!alarmWindow){
+			console.log(document.getElementById("setTime").value);
+			time = document.getElementById("setTime").value;
+			alarmWindow = window.open("hidden.html", "HiddenWindow", "left=600, top=350, width=200, height=100", "");
+		}else{
+			alarmWindow.close();
+			console.log(document.getElementById("setTime").value);
+			time = document.getElementById("setTime").value;
+			alarmWindow = window.open("hidden.html", "HiddenWindow", "left=600, top=350, width=200, height=100", "");
+		}
 	}
-
 }

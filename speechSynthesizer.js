@@ -7,12 +7,12 @@ function speak(){
   const voices = synthesis.getVoices();
   
   for(i = 0; i < voices.length; ++i) {
-    if(voices[i].name === "Google 國語（臺灣）") {
-      utter.voice = voices[i];
-    }
+	  if(voices[i].default) {
+		  utter.voice = voices[i];
+	  }
   }
   
-  utter.rate = 1;
-  utter.pitch = 1;
+  utter.rate = 2;
+  utter.pitch = 2;
   synthesis.speak(utter);
 }

@@ -33,3 +33,10 @@ label {
 button {
     background-color: gray;
 }
+
+#error {
+    color: red;
+    font-weight: bold;
+    font-size: 1.17em;
+    visibility: hidden;
+}
