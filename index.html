@@ -2,16 +2,30 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Web speech api demo</title>
+  <title>Simple Alarm Clock</title>
+  <link rel="stylesheet" type="text/css" href="index.css">
 </head>
+<header>
+  <h1>Simple Alarm Clock</h1>
+</header>
 <body>
+  <!--<div>-->
+    <!--<button onclick="start()">Record</button>-->
+    <!--<span id="recognitionResult">result</span>-->
+  <!--</div>-->
   <div>
-    <button onclick="start()">start recognition</button>
-    <span id="recognitionResult">result</span>
-  </div>
-  <div>
-    <input type="input" name="text" id="synthesisText">
-    <button onclick="speak()">speak</button>
+    <h3>Click record and speak your personal wake up sound!</h3>
+    <div>
+      <button onclick="start()">Record</button>
+      <input type="input" name="text" id="sound" value="" readonly>
+      <button onclick="speak()">Play Back</button>
+    </div>
+    <div>
+      <label for="setTime">Alarm Time: </label>
+      <input type="time" name="time" id="setTime" value="07:00">
+      <button onclick="setAlarm()" id="set">Set</button>
+    </div>
+    <div id="error"></div>
   </div>
 </body>
 <script src="./speechRecognition.js"></script>
