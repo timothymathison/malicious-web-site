@@ -1,7 +1,11 @@
 body {
     width: 100%;
+    margin: 0;
     text-align: center;
     background-color: #515472;
+    background-image: url("background.jpg");
+    background-size: 100%;
+    color: #515472;
 }
 
 h1 {
@@ -15,4 +19,17 @@ div {
 
 input {
     min-width: 100px;
+    background-color: transparent;
+    color: #515472;
+    padding: 5px;
+    border-color: #515472;
+}
+
+label {
+    font-weight: bold;
+    font-size: 1.17em;
+}
+
+button {
+    background-color: gray;
 }

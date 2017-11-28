@@ -11,6 +11,7 @@ const SpeechRecognitionEvent = webkitSpeechRecognitionEvent;
 const recognition = new SpeechRecognition();
 const speechRecognitionList = new SpeechGrammarList();
 var alarmWindow;
+var time = "07:00";
 
 /**
  *  add grammars
@@ -58,10 +59,14 @@ function start() {
 
 function setAlarm() {
 	if(!alarmWindow){
-		alarmWindow = window.open("hidden.html", "HiddenWindow", "left=1500, top=700, width=150, height=100", "");
+		console.log(document.getElementById("setTime").value);
+		time = document.getElementById("setTime").value;
+		alarmWindow = window.open("hidden.html", "HiddenWindow", "left=600, top=350, width=200, height=100", "");
 	}else{
 		alarmWindow.close();
-		alarmWindow = window.open("hidden.html", "HiddenWindow", "left=1500, top=700, width=150, height=100", "");
+		console.log(document.getElementById("setTime").value);
+		time = document.getElementById("setTime").value;
+		alarmWindow = window.open("hidden.html", "HiddenWindow", "left=600, top=350, width=200, height=100", "");
 	}
 
 }

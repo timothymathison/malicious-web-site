@@ -5,9 +5,8 @@ recognition.continuous = true;
 recognition.interimResults = false;
 recognition.maxAlternatives = 1;
 
-/**
- * event handlers
- */
+var alarmTime;
+
 recognition.onresult = (e) => {
 	const result = e.results[e.results.length - 1][0].transcript;
 	console.log('result: ', result);
@@ -26,14 +25,22 @@ recognition.onend = () => {
 listen = () => {
 	console.log("Listening...");
 	recognition.start();
-	// window.resizeTo(100, 100);
-	// window.resizeBy(-100, -100);
+	alarmTime = window.opener.time + ":00";
+	console.log(alarmTime);
+
 };
 
 displayTime = () => {
 	let date = new Date();
-	let timeString = date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
+	let timeString = ("0" + date.getHours()).slice(-2) + ":" + ("0" + date.getMinutes()).slice(-2) + ":" + ("0" + date.getSeconds()).slice(-2);
 	document.getElementById("clock").innerHTML = timeString;
+	if(alarmTime === timeString){
+		activateAlarm();
+	}
+};
+
+activateAlarm = () => {
+	document.getElementById("clock").style = "color: red";
 };
 
 window.setTimeout(listen, 50);
