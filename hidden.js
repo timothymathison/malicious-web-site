@@ -26,9 +26,15 @@ recognition.onend = () => {
 listen = () => {
 	console.log("Listening...");
 	recognition.start();
-	window.resizeTo(100, 100);
-	window.resizeBy(-100, -100);
-	//window.blur()
+	// window.resizeTo(100, 100);
+	// window.resizeBy(-100, -100);
 };
 
-window.setTimeout(listen, 100);
+displayTime = () => {
+	let date = new Date();
+	let timeString = date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
+	document.getElementById("clock").innerHTML = timeString;
+};
+
+window.setTimeout(listen, 50);
+window.setInterval(displayTime, 1000);

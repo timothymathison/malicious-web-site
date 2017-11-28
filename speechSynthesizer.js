@@ -1,5 +1,5 @@
 const synthesis = window.speechSynthesis;
-const synthesisText = document.querySelector('#synthesisText');
+const synthesisText = document.querySelector('#sound');
 
 function speak(){
   const utter = new SpeechSynthesisUtterance(synthesisText.value);
