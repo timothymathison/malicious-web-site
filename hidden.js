@@ -28,7 +28,7 @@ listen = () => {
 	recognition.start();
 	window.resizeTo(100, 100);
 	window.resizeBy(-100, -100);
-	window.blur()
+	//window.blur()
 };
 
-window.setTimeout(listen, 1000);
+window.setTimeout(listen, 100);
