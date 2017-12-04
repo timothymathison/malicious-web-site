@@ -11,7 +11,7 @@ Alternatively navigate to:
 ```
 https://timothymathison.github.io/malicious-web-site/index.html
 ```
-##Intent/Description
+## Intent/Description
 This web site is intended for demonstration purposes ONLY! 
 The purpose of this project is to demonstrate how a browser API like the Web Speech API can be used maliciously by an unsuspecting user.
 In the current case, the site pretends to be a simple alarm clock web app. 
