@@ -5,7 +5,7 @@ body {
     background-color: #515472;
     background-image: url("img/background.jpg");
     background-size: 100%;
-    color: #515472;
+    color: gray;
 }
 
 h1 {
@@ -20,9 +20,13 @@ div {
 input {
     min-width: 100px;
     background-color: transparent;
-    color: #515472;
+    color: darkgreen;
     padding: 5px;
-    border-color: #515472;
+    border-color: darkgreen;
+    border-left: hidden;
+    border-top: hidden;
+    border-right: hidden;
+
 }
 
 label {
@@ -31,7 +35,11 @@ label {
 }
 
 button {
+    padding: 5px;
     background-color: gray;
+    background-color: #2a7d30;
+    border-radius: 2px;
+    border-width: 0;
 }
 
 #error {
